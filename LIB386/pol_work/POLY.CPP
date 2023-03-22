@@ -27,6 +27,8 @@ S32 Fill_Poly_C(S32 Type_Poly, S32 Color_Poly, S32 Nb_Points,
 		popa
   }
 #elif __GNUC__
+  FUNC_FILL_POLY *fn = &Fill_PolyFast;
+
   __asm__ __volatile__("pusha\n\t"
                        "mov %1, %%eax\n\t"
                        "mov %2, %%ebx\n\t"
@@ -37,7 +39,7 @@ S32 Fill_Poly_C(S32 Type_Poly, S32 Color_Poly, S32 Nb_Points,
                        "popa\n\t"
                        : "=m"(returnValue)
                        : "m"(Type_Poly), "m"(Color_Poly), "m"(Nb_Points),
-                         "m"(Ptr_Points), "m"(Fill_PolyFast)
+                         "m"(Ptr_Points), "m"(fn)
                        : "%eax", "%ebx", "%ecx", "%esi");
 #else
 #error "Unsupported compiler!"
