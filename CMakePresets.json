@@ -34,7 +34,10 @@
       "name": "linux",
       "inherits": "default",
       "displayName": "Linux",
-      "description": "Normal compilation on Linux"
+      "description": "Normal compilation on Linux",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
     }
   ]
 }

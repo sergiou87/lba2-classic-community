@@ -33,6 +33,7 @@ if (NOT MVIDEO_BACKEND IN_LIST MVIDEO_BACKEND_OPTIONS)
 endif ()
 
 # Dependencies
+set(SDL2_DIR /usr/lib/i386-linux-gnu/cmake/SDL2/)
 find_package(SDL2 REQUIRED)
 
 # Process the targets
