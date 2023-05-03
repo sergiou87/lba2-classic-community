@@ -2,6 +2,9 @@
 
 #include <SYSTEM/INITADEL.H>
 
+#include <3D/SQRROOT.H>
+#include <math.h>
+
 #include <SVGA/SCREEN.H>
 #include <SVGA/VIDEO.H>
 #include <SYSTEM/DIRECTORIES.H>
@@ -2103,9 +2106,83 @@ void ChangeProgDir() {
 /*══════════════════════════════════════════════════════════════════════════*/
 /*══════════════════════════════════════════════════════════════════════════*/
 
+U32 Sqr_C(U32 x) {
+  U32 returnValue;
+
+  void *fn = (void *)&Sqr;
+
+  __asm__ __volatile__("pusha\n\t"
+                       "mov %1, %%eax\n\t"
+                       "call %2\n\t"
+                       "mov %%eax, %0\n\t"
+                       "popa\n\t"
+                       : "=m"(returnValue)
+                       : "m"(x), "m"(fn)
+                       : "%eax");
+
+  return returnValue;
+}
+
+U32 QSqr_C(U32 xLow, U32 xHigh) {
+  U32 returnValue;
+
+  void *fn = (void *)&QSqr;
+
+  __asm__ __volatile__("pusha\n\t"
+                       "mov %1, %%eax\n\t"
+                       "mov %2, %%edx\n\t"
+                       "call %3\n\t"
+                       "mov %%eax, %0\n\t"
+                       "popa\n\t"
+                       : "=m"(returnValue)
+                       : "m"(xLow), "m"(xHigh), "m"(fn)
+                       : "%eax");
+
+  return returnValue;
+}
+
 
 int main(int argc, char *argv[])
 {
+        // printf("Testing Sqr() and sqrt()\n");
+        // for (U32 x = 0; x < 0xFFFFFFFFu; ++x)
+        // {
+        //         U32 r1 = Sqr_C(x);
+        //         U32 r2 = sqrt(x);
+        //         if (r1 != r2)
+        //         {
+        //                 printf("Sqr(%u) = %u, sqrt(%u) = %u\n", x, r1, x, r2);
+        //                 return 1;
+        //         }
+
+        //         if (x % 100000000 == 0)
+        //         {
+        //                 printf("%u / %u\n", x, 0xFFFFFFFFu);
+        //         }
+        // }
+        // printf("Done!\n");
+
+        // printf("Testing QSqr() and sqrtl()\n");
+        // for (U64 x = 1152941149870941879ull; x < 0xFFFFFFFFFFFFFFFFull; x += rand() % 0xFFFFFFFFull)
+        // {
+        //         U32 r1 = QSqr_C(x & 0xFFFFFFFF, x >> 32);
+        //         U32 r2 = sqrtl(x);
+        //         if (r1 != r2)
+        //         {
+        //                 printf("QSqr(%llu) = %u, sqrtl(%llu) = %u\n", x, r1, x, r2);
+        //                 return 1;
+        //         }
+
+        //         if (x % 100000000 == 0)
+        //         {
+        //                 printf("%llu / %llu\n", x, 0xFFFFFFFFFFFFFFFFull);
+        //         }
+        // }
+        // printf("Done!\n");
+
+        // return 0;
+
+
         S32     load = FALSE ;
         U8      *ptrdos4gw ;
 

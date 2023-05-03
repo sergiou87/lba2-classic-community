@@ -904,6 +904,9 @@ EntityCreation::
 			add	ebp,edx			; EBP = Poly address
 			push	ecx
 
+			; cmp eax, 41
+			; jne @@Return_Display
+
 			jmp	[@@Poly_Jump+eax*4]
 @@Return_Display:
 			pop	ecx
@@ -4253,6 +4256,10 @@ ObjectDisplay		PROC \
 
 			push	ebp
 			mov	ebp,eax			; EBP = PTR on object
+
+			; mov ebx, [eax].OBJ_3D.Body
+			; test ebx, ebx
+			; jz ByeBye
 
 			mov	ebx,[eax].OBJ_3D.Texture	; Must we change the texture pointer ?
 			mov	edx,7FFFFFFFh

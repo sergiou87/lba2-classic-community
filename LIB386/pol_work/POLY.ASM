@@ -1856,8 +1856,8 @@ Draw_Triangle		PROC
 			fdivp	st(3),st	; K1  K3  D
 
 ; Here we are always using ZBuffer, not needed but works for now...
-;Patch_Jmp_XSlopeFPU::	jmp	[Jmp_XSlopeFPU+edx*4]
-Patch_Jmp_XSlopeFPU::	jmp	[Jmp_XSlopeZBufFPU+edx*4]
+Patch_Jmp_XSlopeFPU::	jmp	[Jmp_XSlopeFPU+edx*4]
+;Patch_Jmp_XSlopeFPU::	jmp	[Jmp_XSlopeZBufFPU+edx*4]
 
 ;	push ebx
 ;	mov ebx,dword ptr [Patch_Jmp_XSlopeFPU]
@@ -1995,8 +1995,8 @@ Triangle_ReadNextEdge::
 			push	eax		; Save dX
 
 ; Here we are always using ZBuffer, not needed but works for now...
-;Patch_Jmp_LeftSlopeFPU::jmp	[Jmp_LeftSlopeFPU+edx*4]
-Patch_Jmp_LeftSlopeFPU::jmp	[Jmp_LeftSlopeZBufFPU+edx*4]
+Patch_Jmp_LeftSlopeFPU::jmp	[Jmp_LeftSlopeFPU+edx*4]
+;Patch_Jmp_LeftSlopeFPU::jmp	[Jmp_LeftSlopeZBufFPU+edx*4]
 
 ;			push eax
 ;			mov eax,dword ptr [Patch_Jmp_LeftSlopeFPU]

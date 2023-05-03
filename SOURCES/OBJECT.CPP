@@ -5398,7 +5398,33 @@ S32	AffOneObject(T_SORT *pt)
 			SetClip( 0, 0, ModeDesiredX-1, FlagWater ) ;
 		}
 
+		// printf("X0: %d, Y0: %d, Z0: %d\n", X0, Y0, Z0);
 		aff = ObjectDisplay( &ptrobj->Obj )	;
+
+		if (((T_OBJ_3D *)(&ptrobj->Obj))->Body.Num != 0)
+		{
+			// printf("Rotated points:\n");
+			// for (int i = 0; i < 177; i++)
+			// {
+			// 	printf("Point %d: %d, %d, %d\n", i,
+			// 				Obj_ListRotatedPoints[i].X,
+			// 				Obj_ListRotatedPoints[i].Y,
+			// 				Obj_ListRotatedPoints[i].Z
+			// 	);
+			// }
+			// printf("\n");
+
+			// TYPE_VT16 *points = (TYPE_VT16 *)0x565f7848;
+			// printf("Projected points:\n");
+			// for (int i = 0; i < 177; i++)
+			// {
+			// 	printf("Point %d: %d, %d\n", i,
+			// 				points[i].X,
+			// 				points[i].Y
+			// 	);
+			// }
+			// printf("\n");
+		}
 
 		if( aff )	/* objet pas tout clippé */
 		{
@@ -5762,9 +5788,9 @@ S32	AffOneObject(T_SORT *pt)
 			}
 			else
 			{
-				ScaleSprite( 0, SpriteX, SpriteY,
-					     ScaleFactorSprite, ScaleFactorSprite,
-					     HQR_Get( HQRPtrSpriteRaw, num ) ) ;
+				// ScaleSprite( 0, SpriteX, SpriteY,
+				// 	     ScaleFactorSprite, ScaleFactorSprite,
+				// 	     HQR_Get( HQRPtrSpriteRaw, num ) ) ;
 			}
 		}
 

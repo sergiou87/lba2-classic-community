@@ -1365,7 +1365,7 @@ typedef	struct
 	U8	TabObj3D[4]	;//	Objects evolution ( selon IdObj3D )
 } T_INV_OBJ	;
 
-//======================== Issus de Dial 
+//======================== Issus de Dial
 #define	DIAL_DEF	(1<<0)	// Texte normal (defaut)
 #define DIAL_BIG	(1<<1)	// Texte affiche en BigMessage
 #define	DIAL_FUL	(1<<2)	// Texte affiche en BigMessage sans cadre (Full Screen)

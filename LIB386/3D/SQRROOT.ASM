@@ -22,8 +22,8 @@
 QSqr			PROC \
 			uses ebx ecx edx edi esi ebp\
 			xLow: DWORD, xHigh:DWORD
-			mov eax, xLow
-			mov edx, xHigh
+			; mov eax, xLow
+			; mov edx, xHigh
 
 		test	edx, edx
 		jnz	Sqr_ok
@@ -94,9 +94,9 @@ QSqr		endp
 ;	modify		[ebx ecx edx esi]
 
 Sqr		PROC \
-			uses eax ebx ecx edx edi esi ebp\
+			uses ebx ecx edx edi esi ebp\
 			xLow: DWORD
-			mov eax, xLow
+			;mov eax, xLow
 
 		cmp	eax, 3
 		jbe	short Sqr_0_1
