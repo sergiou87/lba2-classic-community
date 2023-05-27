@@ -359,6 +359,9 @@ Extrn	C		NearClip	:	DWORD
 Extrn	C		CameraZrClip	:	DWORD
 
 Extrn	C		LFactorX	:	DWORD
+PUBLIC	C		Nb_Sort
+PUBLIC	C		ListSort
+PUBLIC	C   Obj_ListProjectedPoints
 
 
 			ALIGN	4
@@ -845,7 +848,7 @@ EntityCreation::
 			cmp	ebx,ecx			; Anything to do ?
 
 			mov	eax,[esi].STRUC_OBJ_HEADER.Obj_Info
-			je	ByeBye
+			;jmp	ByeBye
 
 			sub	ecx,4			; EBX = PTR on the fist element
 			mov	dl,[Fill_Flag_ZBuffer]
@@ -900,12 +903,11 @@ EntityCreation::
 
 			shr	eax,24			; EAX = Poly type
 			and	edx,0FFFFFFh		; EDX = Poly offset
-
 			add	ebp,edx			; EBP = Poly address
 			push	ecx
 
-			; cmp eax, 41
-			; jne @@Return_Display
+			cmp eax, 69
+			jne @@Return_Display
 
 			jmp	[@@Poly_Jump+eax*4]
 @@Return_Display:
@@ -4750,7 +4752,10 @@ BodyDisplay_AlphaBeta	ENDP
 TestVisibleI		PROC
 			mov	ebx,dword ptr [esi].STRUC_POLY3_LIGHT.Poly3_P1
 			mov	ebp,dword ptr [esi].STRUC_POLY3_LIGHT.Poly3_P3
-
+			cmp [Nb_Sort], 11
+			jne Jare
+			mov ecx, ecx
+Jare:
 			mov	ecx,ebx
 			and	ebp,0FFFFh			; EBP = P3
 

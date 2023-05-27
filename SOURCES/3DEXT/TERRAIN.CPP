@@ -933,12 +933,12 @@ void	AffichageTerrainZBuf( void )
 			case 32:
 				break;
 			case 16:
-				DrawFeuillePolyZBuf( x, z, ptrs) ;
+				//DrawFeuillePolyZBuf( x, z, ptrs) ;
 				break;
 			case 0:
 				if(mask)
 				{
-					FillBlackPolyZBuf( x, z, ptrs, ptra) ;
+					//FillBlackPolyZBuf( x, z, ptrs, ptra) ;
 				}
 				break;
 			}
@@ -951,7 +951,7 @@ void	AffichageTerrainZBuf( void )
 		ptrs++	;
 	}
 
-	DrawOneSea( Y_SEA ) ;
+	//DrawOneSea( Y_SEA ) ;
 
 #ifdef	LBA_EDITOR
 	if( FlagInfos&INFO_DECORS )

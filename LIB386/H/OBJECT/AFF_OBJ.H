@@ -1,11 +1,15 @@
 #pragma once
 
 #include <SYSTEM/ADELINE_TYPES.H>
+#include <3D/DATAMAT.H>
 
 // -----------------------------------------------------------------------------
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern U32 Nb_Sort; // Nb entries in sort list
+extern S32 ListSort[550 * 2];
 
 // -----------------------------------------------------------------------------
 #pragma pack(push, 1)
@@ -132,6 +136,7 @@ typedef struct {
 // -----------------------------------------------------------------------------
 extern U8 *ObjPtrMap; // Ptr on the current texture page
 extern T_OBJ_POINT Obj_ListRotatedPoints[];
+extern TYPE_PT Obj_ListProjectedPoints[];
 
 // -----------------------------------------------------------------------------
 extern S32 ObjectDisplay(T_OBJ_3D *obj);

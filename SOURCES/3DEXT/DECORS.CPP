@@ -377,6 +377,10 @@ void	AffichageObjetDecorsZBuf( void )
 						ptrtri->Zrot - StartZFog )
 				) ;
 
+    if (ptrobj->Body != 81)
+    {
+      continue;
+    }
 		if( BodyDisplay(	ptrobj->Xworld,
 					ptrobj->Yworld,
 					ptrobj->Zworld,

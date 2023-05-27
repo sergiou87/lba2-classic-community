@@ -916,7 +916,7 @@ Filler_GouraudFog	PROC
 				; *** Gouraud loop ***
 @@Each_X:
 			add	esi,ebp
-			mov	dl,[eax+Fill_Logical_Palette]
+			mov	dl, [eax+Fill_Logical_Palette]
 
 			adc	al,bl
 			mov	[edi+ecx],dl

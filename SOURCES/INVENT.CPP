@@ -566,6 +566,37 @@ void	DrawObjInventory( S32 x, S32 y, S16 *ptrobj, S32 beta, S32 lfactor, S32 zoo
 	SetFollowCamera( 0,0,0, (60*MUL_ANGLE),0,0, zoom ) 	;
 
 	BodyDisplay(	0,0,0, 0,beta,0, ptrobj ) ;
+
+  // printf("Projected points:\n");
+  // for (int i = 0; i < 177; i++)
+  // {
+  //   printf("Point %d: %d, %d, %d\n", i,
+  //         Obj_ListProjectedPoints[i].X,
+  //         Obj_ListProjectedPoints[i].Y
+  //   );
+  // }
+  // printf("\n");
+
+  // printf("Rotated points:\n");
+  // for (int i = 0; i < 177; i++)
+  // {
+  //   printf("Point %d: %d, %d, %d\n", i,
+  //         Obj_ListRotatedPoints[i].X,
+  //         Obj_ListRotatedPoints[i].Y,
+  //         Obj_ListRotatedPoints[i].Z
+  //   );
+  // }
+  // printf("\n");
+
+  // printf("List sort (%d):\n", Nb_Sort);
+	// for (int i = 0; i < Nb_Sort; i++)
+	// {
+	// 	printf("Point %d: %d, %d\n", i,
+	// 				ListSort[i],
+	// 				ListSort[550 + i]
+	// 	);
+	// }
+	// printf("\n");
 }
 /*──────────────────────────────────────────────────────────────────────────*/
 /*
